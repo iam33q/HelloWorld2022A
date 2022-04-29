@@ -3,8 +3,8 @@ public class LoginScript {
     public static void main(String[] args){
         String username = "admin"; // not case-sensitive
         String password = "Password123!";
-        String uname;
-        String pass;
+        String uname = "";
+        String pass = "";
         int tryNum = 3;
         do
         {
@@ -13,11 +13,15 @@ public class LoginScript {
                 Scanner input1 = new Scanner(System.in);
                 Scanner input2 = new Scanner(System.in);
                 System.out.println("Please enter your username: ");
-                uname = input1.next();
+                uname = input1.next().toLowerCase();
                 System.out.println("Now enter your password: ");
                 pass = input2.next();
-
-                if ((uname.equals(username)) && (pass.equals(password)))
+                if ( uname.equals(""))
+                {
+                    tryNum++;
+                    throw new Exception("Invalid username.");
+                }
+                if ((uname.equalsIgnoreCase(username.toLowerCase())) && (pass.equals(password)))
                 {
                     System.out.println("Login successful!");
                     tryNum = 0;
@@ -30,8 +34,11 @@ public class LoginScript {
             catch (Exception e)
             {
                 tryNum--;
-                System.out.println("Invalid credentials. \nNumber of tries left: "+tryNum);
-                if (tryNum == 0)
+                if ((uname.equalsIgnoreCase(username)) && (pass.equals(password)))
+                {
+                    System.out.println("Invalid credentials. \nNumber of tries left: "+tryNum);
+                }
+                else if (tryNum == 0)
                 {
                     System.out.println("Login Unsuccessful. Please contact your administrator!");
                 }
