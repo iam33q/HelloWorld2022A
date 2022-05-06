@@ -34,11 +34,7 @@ public class LoginScript {
             catch (Exception e)
             {
                 tryNum--;
-                if ((uname.equalsIgnoreCase(username)) && (pass.equals(password)))
-                {
-                    System.out.println("Invalid credentials. \nNumber of tries left: "+tryNum);
-                }
-                else if (tryNum == 0)
+                if (tryNum == 0)
                 {
                     System.out.println("Login Unsuccessful. Please contact your administrator!");
                 }

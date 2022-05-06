@@ -10,17 +10,19 @@ public class HelloWorld {
         float age = 0;
         boolean runTry = true;
         while (runTry) {
-            try {
+            try
+            {
                 Scanner in1 = new Scanner(System.in);
                 age = in1.nextFloat();
                 runTry = false;
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 System.out.println("You have not entered a value number. Please try again.");
                 runTry = true;
             }
         }
         System.out.println("You are " + (Math.floor(age)) + " years and " + Math.floor((age - Math.floor(age)) * 12) + " months old.");
-        age++;
-        System.out.println("Next year you will be " + Math.floor(age) + ".");
+        System.out.println("Next year you will be " + Math.floor(age+1) + ".");
     }
 }
